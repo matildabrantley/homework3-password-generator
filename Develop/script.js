@@ -16,6 +16,7 @@ function getCharCodes(startingPosition, sectionLength) {
   var newCodes = [];
   for (code = startingPosition; code < startingPosition + sectionLength ; code++)
     newCodes.push(code);
+  console.log("Getting new codes: " + newCodes);
   return newCodes;
 }
 
@@ -50,15 +51,15 @@ function generatePassword(){
   const alphabetLength = 26;
 
   //add lower case codes to possibleCharacters array, a to z
-  if (pwIncludesLowerCase){
+  if (pwIncludesLowerCase)
     possibleCharacters.concat(getCharCodes(97, alphabetLength)); //97 is "a"
 
   //add upper case codes to possibleCharacters array, A to Z
-  if (pwIncludesUpperCase){
+  if (pwIncludesUpperCase)
     possibleCharacters.concat(getCharCodes(97, alphabetLength)); //65 is "A"
 
   //add number codes to possibleCharacters array, 0 to 9
-  if (pwIncludesNumbers){
+  if (pwIncludesNumbers)
     possibleCharacters.concat(getCharCodes(48, 10)); //48 is "0"
 
   //add number codes to possibleCharacters array
@@ -70,6 +71,13 @@ function generatePassword(){
     //Adds {, |, }, ~
     possibleCharacters.concat(getCharCodes(123, 4)); //123 is "{"
   }
+
+   //randomly select from all chosen characters and append to password
+   var newCharacterCode;
+   for (var i=0; i<pwLength; i++){
+     newCharacterCode = Math.floor(Math.random() * possibleCharacters.length);
+     myPassword += String.fromCharCode(newCharacterCode);
+   }  
 
   return myPassword;
 }
