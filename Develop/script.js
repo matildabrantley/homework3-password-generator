@@ -16,7 +16,7 @@ function getCharCodes(startingPosition, sectionLength) {
   var newCodes = [];
   for (code = startingPosition; code < startingPosition + sectionLength ; code++)
     newCodes.push(code);
-  console.log("Getting new codes: " + newCodes);
+  //console.log("Getting new codes: " + newCodes);
   return newCodes;
 }
 
@@ -26,7 +26,7 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword(){
   var myPassword = "";
 
-  //prompt password length and validate length between 8 and 128
+  //prompt password length and validate it is between 8 and 128
   var pwLength = prompt("Password length: ");
   if (pwLength < 8)
     return "Password too short";
@@ -46,37 +46,48 @@ function generatePassword(){
 
   /*create an array of possible character codes based on user's choices
     such that every character is equally likely */
-  var possibleCharacters = [];
+  var possibleCodes = [];
 
   const alphabetLength = 26;
-
-  //add lower case codes to possibleCharacters array, a to z
+  //add lower case codes to possibleCodes array, a to z
   if (pwIncludesLowerCase)
-    possibleCharacters.concat(getCharCodes(97, alphabetLength)); //97 is "a"
+    possibleCodes = possibleCodes.concat(getCharCodes(97, alphabetLength)); //97 is "a"
 
-  //add upper case codes to possibleCharacters array, A to Z
+  //add upper case codes to possibleCodes array, A to Z
   if (pwIncludesUpperCase)
-    possibleCharacters.concat(getCharCodes(97, alphabetLength)); //65 is "A"
+    possibleCodes = possibleCodes.concat(getCharCodes(65, alphabetLength)); //65 is "A"
 
-  //add number codes to possibleCharacters array, 0 to 9
+  //add number codes to possibleCodes array, 0 to 9
   if (pwIncludesNumbers)
-    possibleCharacters.concat(getCharCodes(48, 10)); //48 is "0"
+    possibleCodes = possibleCodes.concat(getCharCodes(48, 10)); //48 is "0"
 
-  //add number codes to possibleCharacters array
+  //add number codes to possibleCodes array
   if (pwIncludesSpecial){
     //Adds !, ", #, $, %, &, ', (, ), *, +, ', -, ., /
-    possibleCharacters.concat(getCharCodes(33, 15)); //33 is "!"
+    possibleCodes = possibleCodes.concat(getCharCodes(33, 15)); //33 is "!"
     //Adds :, ;, <, =, >, ?, @
-    possibleCharacters.concat(getCharCodes(58, 7)); //58 is ":"
+    possibleCodes = possibleCodes.concat(getCharCodes(58, 7)); //58 is ":"
     //Adds {, |, }, ~
-    possibleCharacters.concat(getCharCodes(123, 4)); //123 is "{"
+    possibleCodes = possibleCodes.concat(getCharCodes(123, 4)); //123 is "{"
   }
 
+  //check if all codes added to array correctly
+  //console.log("All possible codes: " + possibleCodes);
+
    //randomly select from all chosen characters and append to password
-   var newCharacterCode;
+   var randomIndex, newPasswordCharacter;
    for (var i=0; i<pwLength; i++){
-     newCharacterCode = Math.floor(Math.random() * possibleCharacters.length);
-     myPassword += String.fromCharCode(newCharacterCode);
+     //get random index for possibleCodes
+     randomIndex = Math.floor(Math.random() * possibleCodes.length);
+     //console.log("Random index: " + randomIndex);
+     
+     //retrieve and assign character by using the code at random index of possibleCodes
+     newPasswordCharacter = String.fromCharCode(possibleCodes[randomIndex]);
+     //console.log("New character: " + newPasswordCharacter);
+
+     //append character to password string
+     myPassword += newPasswordCharacter;
+     //console.log("Building up password: " + myPassword);
    }  
 
   return myPassword;
