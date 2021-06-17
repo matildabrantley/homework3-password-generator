@@ -1,8 +1,13 @@
 # Homework 3: JavaScript Password Generator
-By Matilda Brantley
+#### By Matilda Brantley 
+
+[Live GitHub Page](https://matildabrantley.github.io/homework3-password-generator/)
+
+
 
 ## Features
 
+* Array possibleCodes is concatenated with new character codes so that every random character is equally likely.
 * Helper function getCharacterCodes() that creates and returns an array of character codes based on specified starting position and length of character code section. New character types can easily be appended to possibleCodes array this way.
 * Includes special characters !, ", #, $, %, &, ', (, ), *, +, ', -, ., /, :, ;, <, =, >, ?, @, {, |, }, ~. 
 * Returns error message instead of password if password parameters are invalid (too short, too long, no options selected).
@@ -14,17 +19,19 @@ By Matilda Brantley
 
 ## Goals for Homework
  Given I need a new, secure password:
-* WHEN I click the button to generate a password
-  * THEN I am presented with a series of prompts for password criteria
-* WHEN prompted for password criteria
-  * THEN I select which criteria to include in the password
-* WHEN prompted for the length of the password
-  * THEN I choose a length of at least 8 characters and no more than 128 characters
-* WHEN prompted for character types to include in the password
-  * THEN I choose lowercase, uppercase, numeric, and/or special characters
-* WHEN I answer each prompt
-  * THEN my input should be validated and at least one character type should be selected
-* WHEN all prompts are answered
-  * THEN a password is generated that matches the selected criteria
-* WHEN the password is generated
-  *THEN the password is either displayed in an alert or written to the page
+* When I click the button to generate a password
+  * Then I am presented with a series of prompts for password criteria
+* When prompted for password criteria
+  * Then I select which criteria to include in the password
+* When prompted for the length of the password
+  * Then I choose a length of at least 8 characters and no more than 128 characters
+* When prompted for character types to include in the password
+  * Then I choose lowercase, uppercase, numeric, and/or special characters
+* When I answer each prompt
+  * Then my input should be validated and at least one character type should be selected
+* When all prompts are answered
+  * Then a password is generated that matches the selected criteria
+* When the password is generated
+  *Then the password is either displayed in an alert or written to the page
+
+#### Completed 6/17/2021
