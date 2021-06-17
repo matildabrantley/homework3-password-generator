@@ -11,7 +11,7 @@ function writePassword() {
 }
 
 //returns an array of chosen section of character codes
-function getCharCodes(startingPosition, sectionLength) {
+function getCharacterCodes(startingPosition, sectionLength) {
   var code;
   var newCodes = [];
   for (code = startingPosition; code < startingPosition + sectionLength ; code++)
@@ -51,24 +51,24 @@ function generatePassword(){
   const alphabetLength = 26;
   //add lower case codes to possibleCodes array, a to z
   if (pwIncludesLowerCase)
-    possibleCodes = possibleCodes.concat(getCharCodes(97, alphabetLength)); //97 is "a"
+    possibleCodes = possibleCodes.concat(getCharacterCodes(97, alphabetLength)); //97 is "a"
 
   //add upper case codes to possibleCodes array, A to Z
   if (pwIncludesUpperCase)
-    possibleCodes = possibleCodes.concat(getCharCodes(65, alphabetLength)); //65 is "A"
+    possibleCodes = possibleCodes.concat(getCharacterCodes(65, alphabetLength)); //65 is "A"
 
   //add number codes to possibleCodes array, 0 to 9
   if (pwIncludesNumbers)
-    possibleCodes = possibleCodes.concat(getCharCodes(48, 10)); //48 is "0"
+    possibleCodes = possibleCodes.concat(getCharacterCodes(48, 10)); //48 is "0"
 
   //add number codes to possibleCodes array
   if (pwIncludesSpecial){
     //Adds !, ", #, $, %, &, ', (, ), *, +, ', -, ., /
-    possibleCodes = possibleCodes.concat(getCharCodes(33, 15)); //33 is "!"
+    possibleCodes = possibleCodes.concat(getCharacterCodes(33, 15)); //33 is "!"
     //Adds :, ;, <, =, >, ?, @
-    possibleCodes = possibleCodes.concat(getCharCodes(58, 7)); //58 is ":"
+    possibleCodes = possibleCodes.concat(getCharacterCodes(58, 7)); //58 is ":"
     //Adds {, |, }, ~
-    possibleCodes = possibleCodes.concat(getCharCodes(123, 4)); //123 is "{"
+    possibleCodes = possibleCodes.concat(getCharacterCodes(123, 4)); //123 is "{"
   }
 
   //check if all codes added to array correctly
