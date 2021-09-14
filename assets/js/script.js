@@ -1,10 +1,10 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+const generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  const password = generatePassword();
+  const passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
@@ -12,8 +12,8 @@ function writePassword() {
 
 //returns an array of chosen section of character codes
 function getCharacterCodes(startingPosition, sectionLength) {
-  var code;
-  var newCodes = [];
+  let code;
+  const newCodes = [];
   for (code = startingPosition; code < startingPosition + sectionLength ; code++)
     newCodes.push(code);
   //console.log("Getting new codes: " + newCodes);
@@ -24,22 +24,29 @@ function getCharacterCodes(startingPosition, sectionLength) {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword(){
-  var myPassword = "";
+  let myPassword = "";
+  let pwLength, pwIncludesLowerCase, pwIncludesUpperCase, pwIncludesNumbers, pwIncludesSpecial;
 
-  //prompt password length and validate it is between 8 and 128
-  var pwLength = prompt("Password length: ");
-  if (pwLength < 8)
-    return "Password too short";
-  if (pwLength > 128)
-    return "Password too long";
+  if (document.getElementById('customize').checked) {
+    //prompt password length and validate it is between 8 and 128
+    pwLength = prompt("Password length: ");
+    if (pwLength < 8)
+      return "Password too short";
+    if (pwLength > 128)
+      return "Password too long";
 
-  const isCustom = document.getElementById('customize').checked;
-
-  //prompt password generation preferences
-  var pwIncludesLowerCase = isCustom ? confirm("Confirm password includes lower case characters") : true;
-  var pwIncludesUpperCase = isCustom ? confirm("Confirm password includes upper case characters") : true;
-  var pwIncludesNumbers = isCustom ? confirm("Confirm password includes numbers") : true;
-  var pwIncludesSpecial = isCustom ? confirm("Confirm password includes special characters") : false;
+    //prompt password generation preferences
+      pwIncludesLowerCase = confirm("Confirm password includes lower case characters");
+      pwIncludesUpperCase = confirm("Confirm password includes upper case characters");
+      pwIncludesNumbers = confirm("Confirm password includes numbers");
+      pwIncludesSpecial = confirm("Confirm password includes special characters");
+  } else { //use defaults
+      pwLength = 10;
+      pwIncludesLowerCase = true;
+      pwIncludesUpperCase = true;
+      pwIncludesNumbers = true;
+      pwIncludesSpecial = false;
+  }
 
   //if no preferences selected, return error message
   if (!(pwIncludesLowerCase || pwIncludesUpperCase 
@@ -48,7 +55,7 @@ function generatePassword(){
 
   /*create an array of possible character codes based on user's choices
     such that every character is equally likely */
-  var possibleCodes = [];
+  let possibleCodes = [];
 
   const alphabetLength = 26;
   //add lower case codes to possibleCodes array, a to z
@@ -77,8 +84,8 @@ function generatePassword(){
   //console.log("All possible codes: " + possibleCodes);
 
    //randomly select from all chosen characters and append to password
-   var randomIndex, newPasswordCharacter;
-   for (var i=0; i<pwLength; i++){
+   let randomIndex, newPasswordCharacter;
+   for (let i=0; i<pwLength; i++){
      //get random index for possibleCodes
      randomIndex = Math.floor(Math.random() * possibleCodes.length);
      //console.log("Random index: " + randomIndex);
