@@ -33,9 +33,9 @@ function generatePassword(){
   let pwLength, pwIncludesLowerCase, pwIncludesUpperCase, pwIncludesNumbers, pwIncludesSpecial;
 
   if (document.getElementById('customize').checked) {
-    //prompt password length and validate it is between 8 and 128
+    //prompt password length and validate it is between 4 and 128
     pwLength = document.getElementById('pw-length').value;
-    if (pwLength < 8)
+    if (pwLength < 4)
       return "Password too short";
     if (pwLength > 128)
       return "Password too long";
