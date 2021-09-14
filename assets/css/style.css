@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Cormorant:wght@700');
+
 *,
 *::before,
 *::after {
@@ -7,6 +9,7 @@
 html,
 body,
 .wrapper {
+  font-family: Cormorant;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -15,6 +18,11 @@ body,
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
+  background: url("background/password-background.jpg")  no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .wrapper {
@@ -32,14 +40,20 @@ header {
 
 .card {
   background-color: hsl(0, 0%, 100%);
-  border-radius: 5px;
+  border-radius: 10px;
   border-width: 1px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 8px 0px;
   color: hsl(206, 17%, 28%);
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  filter: brightness(0.95);
+  transition: filter 1.5s;
+}
+
+.card:hover {
+  filter: brightness(1);
 }
 
 .card-header::after {
@@ -75,7 +89,7 @@ header {
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
-  border-radius: 25px;
+  border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
   color: hsl(0, 0%, 100%);
@@ -86,6 +100,12 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+  filter: opacity(0.75);
+  transition: filter 0.5s;
+}
+
+.btn:hover {
+  filter: opacity(1);
 }
 
 button[disabled] {
