@@ -1,9 +1,7 @@
-# Homework 3: JavaScript Password Generator
+# JavaScript Password Generator
 #### By Matilda Brantley 
 
-[Live GitHub Page](https://matildabrantley.github.io/homework3-password-generator/)
-
-
+[Live GitHub Page](https://matildabrantley.github.io/password-generator/)
 
 ## Features
 
@@ -11,13 +9,15 @@
 * Helper function getCharacterCodes() that creates and returns an array of character codes based on specified starting position and length of character code section. New character types can easily be appended to possibleCodes array this way.
 * Includes special characters !, ", #, $, %, &, ', (, ), *, +, ', -, ., /, :, ;, <, =, >, ?, @, {, |, }, ~. 
 * Returns error message instead of password if password parameters are invalid (too short, too long, no options selected).
+* Customization options for password appear below when selected, using checkboxes for each password option.
 
 ## Screenshots
 
-![Length Selector Screenshot](assets/images/screenshot1.jpg)
+![Length Selector Screenshot](assets/images/screenshot.jpg)
 ![Password Result Screenshot](assets/images/screenshot2.jpg)
+![Password Result Screenshot](assets/images/screenshot3.jpg)
 
-## Goals for Homework
+## Goals for Project
  Given I need a new, secure password:
 * When I click the button to generate a password
   * Then I am presented with a series of prompts for password criteria
