@@ -1,13 +1,18 @@
 // Assignment Code
 const generateBtn = document.querySelector("#generate");
 
+//Show/Hide Customization Options
+function showOptions() {
+  const options = document.getElementById("options");
+  options.style.display = document.getElementById('customize').checked ? "block" : "none";
+}
+
 // Write password to the #password input
 function writePassword() {
   const password = generatePassword();
   const passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 //returns an array of chosen section of character codes
@@ -29,17 +34,17 @@ function generatePassword(){
 
   if (document.getElementById('customize').checked) {
     //prompt password length and validate it is between 8 and 128
-    pwLength = prompt("Password length: ");
+    pwLength = document.getElementById('pw-length').value;
     if (pwLength < 8)
       return "Password too short";
     if (pwLength > 128)
       return "Password too long";
 
     //prompt password generation preferences
-      pwIncludesLowerCase = confirm("Confirm password includes lower case characters");
-      pwIncludesUpperCase = confirm("Confirm password includes upper case characters");
-      pwIncludesNumbers = confirm("Confirm password includes numbers");
-      pwIncludesSpecial = confirm("Confirm password includes special characters");
+      pwIncludesLowerCase = document.getElementById('includes-lower-case').checked;
+      pwIncludesUpperCase = document.getElementById('includes-upper-case').checked;
+      pwIncludesNumbers = document.getElementById('includes-numbers').checked;
+      pwIncludesSpecial = document.getElementById('includes-specials').checked;
   } else { //use defaults
       pwLength = 10;
       pwIncludesLowerCase = true;

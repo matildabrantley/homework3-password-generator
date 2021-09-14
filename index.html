@@ -27,7 +27,24 @@
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>
           <label for="customize">
-            <input type="checkbox" id="customize" name="customize" value="yes">  Customize Password 
+            <input type="checkbox" id="customize" name="customize" onclick="showOptions()">  Customize Password 
+         </label>
+        </div>
+        <div class="card-footer" id="options">
+          <label for="pw-length">
+            Password Length <input id="pw-length" name="pw-length" value="10">
+          </label><br>
+          <label for="includes-lower-case">
+            Includes Lower Case <input type="checkbox" id="includes-lower-case" name="includes-lower-case" checked="checked"> 
+         </label><br>
+          <label for="includes-upper-case">
+           Includes Upper Case <input type="checkbox" id="includes-upper-case" name="includes-upper-case" checked="checked"> 
+         </label><br>
+          <label for="includes-numbers">
+           Includes Numbers <input type="checkbox" id="includes-numbers" name="includes-numbers" checked="checked"> 
+         </label><br>
+          <label for="includes-specials">
+           Includes Specials <input type="checkbox" id="includes-specials" name="includes-specials">   
          </label>
         </div>
       </div>
