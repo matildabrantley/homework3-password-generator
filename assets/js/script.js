@@ -33,11 +33,13 @@ function generatePassword(){
   if (pwLength > 128)
     return "Password too long";
 
+  const isCustom = document.getElementById('customize').checked;
+
   //prompt password generation preferences
-  var pwIncludesLowerCase = confirm("Confirm password includes lower case characters");
-  var pwIncludesUpperCase = confirm("Confirm password includes upper case characters");
-  var pwIncludesNumbers = confirm("Confirm password includes numbers");
-  var pwIncludesSpecial = confirm("Confirm password includes special characters");
+  var pwIncludesLowerCase = isCustom ? confirm("Confirm password includes lower case characters") : true;
+  var pwIncludesUpperCase = isCustom ? confirm("Confirm password includes upper case characters") : true;
+  var pwIncludesNumbers = isCustom ? confirm("Confirm password includes numbers") : true;
+  var pwIncludesSpecial = isCustom ? confirm("Confirm password includes special characters") : false;
 
   //if no preferences selected, return error message
   if (!(pwIncludesLowerCase || pwIncludesUpperCase 
